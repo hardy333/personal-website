@@ -1,0 +1,70 @@
+---
+name: sample
+title: This is sample mdx file
+tags: abc
+---
+
+# this is sample mdx file
+
+**kdsjhjkdsh**
+
+_djkkjdshds_
+
+import { useState } from "react"
+
+export const Button = () => {
+  const [counter, setCounter] = useState(10)
+  return (
+    <button onClick={() => setCounter(counter + 10)}>
+      Counter - {counter}
+    </button>
+  )
+}
+
+<Button />
+
+import Navbar from "../components/Navbar.jsx"
+import Footer from "../components/Footer.jsx"
+
+<Navbar />
+<Footer />
+
+export default ({ children }) => {
+  return (
+    <div
+      className="mdx-wrapper"
+      style={{ border: "10px solid dodgerblue", padding: 20 }}
+    >
+      {children}
+    </div>
+  )
+}
+
+```javascript
+const number = 100
+```
+
+```jsx
+import Navbar from "../components/Navbar.jsx"
+import Footer from "../components/Footer.jsx"
+
+<Navbar />
+<Footer />
+
+export default ({ children }) => {
+  return (
+    <div
+      className="mdx-wrapper"
+      style={{ border: "10px solid dodgerblue", padding: 20 }}
+    >
+      {children}
+    </div>
+  )
+}
+```
+
+![djshsd](../images/image-3.jpg)
+
+> #### Heading in blockquotes text
+>
+> **bold text** > _italic text_

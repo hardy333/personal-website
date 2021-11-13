@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-blog-jsx",
+    "path": "/blog/",
+    "result": {"data":{"allMdx":{"nodes":[{"frontmatter":{"name":"sample","tags":"abc","title":"This is sample mdx file"}},{"frontmatter":{"name":"post1","tags":"html css js","title":"post1 mdx page"}},{"frontmatter":{"name":"post2","tags":"html css","title":"post2 mdx page"}}]}},"pageContext":{}},
+    "staticQueryHashes": []}

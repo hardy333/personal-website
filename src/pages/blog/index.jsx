@@ -1,9 +1,16 @@
 import { graphql, Link } from "gatsby"
-import React from "react"
-import Layout from "../components/Layout"
-import Seo from "../components/Seo"
+import React, { useEffect, useState } from "react"
+import Layout from "../../components/Layout"
+import Seo from "../../components/Seo"
 
 const Blog = ({ data }) => {
+  const [tag, setTag] = useState(null)
+
+  useEffect(() => {
+    const currTag = new URLSearchParams(window.location.search).get("tag")
+    setTag(currTag || "")
+  }, [setTag])
+
   return (
     <Layout>
       <Seo
@@ -11,9 +18,15 @@ const Blog = ({ data }) => {
         description="Gela Samonidze's personal blog"
       />
       <h1>This is Blog</h1>
+      <Link to="./tags">All tags</Link>
       <ul>
         {data.allMdx.nodes.map(node => (
-          <li key={node.frontmatter.name}>
+          <li
+            key={node.frontmatter.name}
+            style={{
+              display: node.frontmatter.tags.includes(tag) ? "" : "none",
+            }}
+          >
             <Article frontmatter={node.frontmatter} />
           </li>
         ))}

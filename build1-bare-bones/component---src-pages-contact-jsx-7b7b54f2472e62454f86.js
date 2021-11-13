@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_hello_world=self.webpackChunkgatsby_starter_hello_world||[]).push([[661],{1353:function(e,t,l){l.r(t);var a=l(7294),n=l(8991),r=l(2583);t.default=function(){return a.createElement(n.Z,null,a.createElement(r.Z,{title:"Contact | Gela Samosnidze",description:"Contact to Gela Samsonidze"}),a.createElement("div",null,"This is contact"))}}}]);
+//# sourceMappingURL=component---src-pages-contact-jsx-7b7b54f2472e62454f86.js.map

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-sample-mdx",
+    "path": "/sample/",
+    "result": {"pageContext":{"frontmatter":{"name":"sample","title":"This is sample mdx file","tags":"abc"}}},
+    "staticQueryHashes": []}

@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkgatsby_starter_hello_world=self.webpackChunkgatsby_starter_hello_world||[]).push([[354],{1866:function(e,t,l){l.r(t);var a=l(7294),n=l(8991),r=l(2583);t.default=function(){return a.createElement(n.Z,null,a.createElement(r.Z,{title:"About | Gela Samsonidze",description:"About Gela Samsonidze"}),a.createElement("h1",null,"This is About page"))}}}]);
+//# sourceMappingURL=component---src-pages-about-jsx-b86578b84abed4451d80.js.map

@@ -1,5 +1,9 @@
 const path = require(`path`)
 
+const slugify = string => {
+  return string.split(" ").join("-")
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -9,17 +13,17 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           next {
             frontmatter {
-              name
+              title
             }
           }
           previous {
             frontmatter {
-              name
+              title
             }
           }
           node {
             frontmatter {
-              name
+              title
             }
           }
         }
@@ -29,12 +33,11 @@ exports.createPages = async ({ graphql, actions }) => {
   const templatePath = path.resolve(`./src/templates/post-template.jsx`)
 
   result.data.allMdx.edges.forEach(edge => {
-    console.log({ edge })
     createPage({
-      path: edge.node.frontmatter.name,
+      path: slugify(edge.node.frontmatter.title),
       component: templatePath,
       context: {
-        name: edge.node.frontmatter.name,
+        title: edge.node.frontmatter.title,
         next: edge.next,
         previous: edge.previous,
       },

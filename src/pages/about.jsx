@@ -8,7 +8,9 @@ const About = () => {
   return (
     <Layout>
       <Seo title="About | Gela Samsonidze" description={aboutPageDescription} />
-      <h1>This is About page</h1>
+      <div className="container">
+        <h1>This is About page</h1>
+      </div>
     </Layout>
   )
 }

@@ -6,22 +6,33 @@ import Layout from "../components/Layout"
 const PostTemplate = ({ data, pageContext }) => {
   const { next } = pageContext
   const { previous } = pageContext
-  console.log(next, previous)
-
+  const { title, tags, date } = data.mdx.frontmatter
   return (
     <Layout>
-      <h2>This is post template</h2>
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      {previous && (
-        <Link style={{ margin: 10 }} to={"/" + previous.frontmatter.name}>
-          {"<<---" + previous.frontmatter.name}
-        </Link>
-      )}
-      {next && (
-        <Link style={{ margin: 10 }} to={"/" + next.frontmatter.name}>
-          {next.frontmatter.name + "--->>"}
-        </Link>
-      )}
+      <section className="post">
+        <div className="post__container">
+          <h1>{title}</h1>
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          <div className="post__link-container">
+            {previous && (
+              <Link
+                style={{ margin: 10 }}
+                to={"/" + previous.frontmatter.title.split(" ").join("-")}
+              >
+                {"<<---" + previous.frontmatter.title}
+              </Link>
+            )}
+            {next && (
+              <Link
+                style={{ margin: 10 }}
+                to={"/" + next.frontmatter.title.split(" ").join("-")}
+              >
+                {next.frontmatter.title + "--->>"}
+              </Link>
+            )}
+          </div>
+        </div>
+      </section>
     </Layout>
   )
 }
@@ -29,12 +40,12 @@ const PostTemplate = ({ data, pageContext }) => {
 export default PostTemplate
 
 export const query = graphql`
-  query postTemplateQuery($name: String) {
-    mdx(frontmatter: { name: { eq: $name } }) {
+  query postTemplateQuery($title: String) {
+    mdx(frontmatter: { title: { eq: $title } }) {
       frontmatter {
-        name
-        tags
         title
+        tags
+        date
       }
       body
     }

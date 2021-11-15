@@ -9,7 +9,9 @@ const Contact = () => {
         title="Contact | Gela Samosnidze"
         description="Contact to Gela Samsonidze"
       />
-      <div>This is contact</div>
+      <div className="container">
+        <div>This is contact</div>
+      </div>
     </Layout>
   )
 }

@@ -3,25 +3,68 @@ import React from "react"
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/timeline">Timeline</Link>
-        </li>
-        <li>
-          <Link to="/blog">Blog</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-      </ul>
-    </nav>
+    <header className="navbar">
+      <div className="container navbar__container">
+        <nav className="navbar__nav">
+          <ul className="navbar__list">
+            <li className="navbar__list-item">
+              <Link
+                className="navbar__link"
+                activeClassName="navbar__link--active"
+                to="/"
+              >
+                Home
+              </Link>
+            </li>
+            <li className="navbar__list-item">
+              <Link
+                className="navbar__link"
+                activeClassName="navbar__link--active"
+                to="/about"
+              >
+                About
+              </Link>
+            </li>
+            <li className="navbar__list-item">
+              <Link
+                className="navbar__link"
+                activeClassName="navbar__link--active"
+                to="/timeline"
+              >
+                Timeline
+              </Link>
+            </li>
+            <li className="navbar__list-item">
+              <Link
+                className="navbar__link"
+                activeClassName="navbar__link--active"
+                to="/blog"
+              >
+                Blog
+              </Link>
+            </li>
+            <li className="navbar__list-item">
+              <Link
+                className="navbar__link"
+                activeClassName="navbar__link--active"
+                to="/contact"
+              >
+                Contact
+              </Link>
+            </li>
+            <li className="navbar__list-item">
+              <Link
+                className="navbar__link"
+                activeClassName="navbar__link--active"
+                to="/page"
+              >
+                Page
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
   )
 }
 

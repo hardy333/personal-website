@@ -1,0 +1,227 @@
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: 0rem auto;
+  padding: 0rem 2rem;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  padding: 2rem 0rem;
+
+  &__logo {
+    font-size: 5rem;
+    margin-right: 2rem;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__list-item {
+    margin: 0 1rem;
+  }
+
+  &__link {
+    font-size: 1.6rem;
+    &:hover {
+      color: var(--primary);
+    }
+
+    &--active {
+      color: var(--primary);
+    }
+  }
+}
+
+.hero {
+  min-height: 100vh;
+  &__btn-wrapper {
+  }
+}
+
+/* ----------- *\
+  ## Button start
+  \* ----------- */
+.btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.3rem;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@each $color, $color-value in $general-colors {
+  .btn-#{$color} {
+    background-color: $color-value;
+    color: #fff;
+  }
+}
+
+@each $color, $color-value in $general-colors-sass {
+  .btn-soft-#{$color} {
+    background-color: transparentize(rgba($color-value, 1), 0.9);
+    letter-spacing: 0.5px;
+    color: $color-value;
+  }
+}
+
+@each $color, $color-value in $general-colors-sass {
+  .btn-soft-#{$color}:hover {
+    background-color: $color-value;
+    color: #fff;
+  }
+}
+
+@each $color, $color-value in $general-colors {
+  .btn-outline-#{$color} {
+    background-color: #fff;
+    color: $color-value;
+    border: 1px solid $color-value;
+  }
+}
+
+@each $color, $color-value in $general-colors {
+  .btn-outline-#{$color}:hover {
+    background-color: $color-value;
+    color: #fff;
+    border: 1px solid $color-value;
+  }
+}
+
+.btn-container {
+  margin: 2rem 0;
+  display: flex;
+  width: 35rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+/* ----------- *\
+  ## Button End
+  \* ----------- */
+
+.blog {
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.blog-container {
+  max-width: 100%;
+  width: 70rem;
+  margin: auto;
+}
+
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.posts-container {
+  padding: 2rem 0;
+}
+
+// Blog End
+.blog {
+  background-color: #f9f9f9;
+}
+
+.post-card {
+  margin: 3rem 0;
+  padding: 3rem 3.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 5px 20px -15px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  transition: transform 0.2s linear;
+
+  &:hover {
+    transform: translate(0, -1rem);
+    box-shadow: 0px 5px 20px -15px rgba(0, 0, 0, 0.6);
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    width: 95%;
+  }
+}
+// Blog End
+
+// Footer START
+.footer {
+  padding: 2rem 0;
+  text-align: center;
+}
+// Footer END
+
+// Post Start
+.post {
+  padding: 4rem 0;
+
+  &__link-container {
+    margin: 3rem 0;
+    min-height: 10rem;
+    background-color: var(--gray-100);
+    display: flex;
+    align-items: stretch;
+
+    & > * {
+      width: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+.post__container {
+  max-width: 100%;
+  width: 70rem;
+  margin: auto;
+}
+
+// Post End
+
+//  Tags Start
+.tags {
+  padding: 4rem 0;
+
+  &__container {
+    max-width: 100%;
+    width: 70rem;
+    margin: auto;
+  }
+
+  &__title {
+    margin: 2rem 0;
+  }
+
+  &__letter-list {
+    margin: 1rem 0;
+  }
+
+  &__list {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__tag-li {
+    margin: 0.2rem;
+  }
+}
+
+//  Tags End

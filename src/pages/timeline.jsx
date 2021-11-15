@@ -4,7 +4,9 @@ import Layout from "../components/Layout"
 const Timeline = () => {
   return (
     <Layout>
-      <h1>This is timeline page</h1>
+      <section className="timeline">
+        <div className="container"></div>
+      </section>
     </Layout>
   )
 }

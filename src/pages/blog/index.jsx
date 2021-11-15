@@ -1,4 +1,5 @@
 import { graphql, Link } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useEffect, useState } from "react"
 import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
@@ -9,7 +10,7 @@ const Blog = ({ data }) => {
   useEffect(() => {
     const currTag = new URLSearchParams(window.location.search).get("tag")
     setTag(currTag || "")
-  }, [setTag])
+  })
 
   return (
     <Layout>
@@ -17,33 +18,45 @@ const Blog = ({ data }) => {
         title="Blog | Gela Samsonidze"
         description="Gela Samonidze's personal blog"
       />
-      <h1>This is Blog</h1>
-      <Link to="./tags">All tags</Link>
-      <ul>
-        {data.allMdx.nodes.map(node => (
-          <li
-            key={node.frontmatter.name}
-            style={{
-              display: node.frontmatter.tags.includes(tag) ? "" : "none",
-            }}
-          >
-            <Article frontmatter={node.frontmatter} />
-          </li>
-        ))}
-      </ul>
+      <section className="blog">
+        <div className="blog-container">
+          <header className="blog-header">
+            <h1>This is Blog</h1>
+            <Link to="./tags" className="btn btn-danger">
+              All tags
+            </Link>
+          </header>
+          <ul className="posts-container">
+            {data.allMdx.nodes.map(node => (
+              <li
+                key={node.frontmatter.title}
+                style={{
+                  display: node.frontmatter.tags.includes(tag) ? "" : "none",
+                }}
+              >
+                <Article
+                  frontmatter={node.frontmatter}
+                  timeToRead={node.timeToRead}
+                  excerpt={node.excerpt}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </Layout>
   )
 }
 
-const Article = ({ frontmatter }) => {
+const Article = ({ frontmatter, excerpt, timeToRead }) => {
+  const { date, title, tags } = frontmatter
   return (
-    <article>
-      <Link to={"/" + frontmatter.name}>
-        <h2>{frontmatter.name}</h2>
-      </Link>
-      <p>title - {frontmatter.title}</p>
-      <p>tags - {frontmatter.tags}</p>
-    </article>
+    <Link to={"/" + title.split(" ").join("-")}>
+      <article className="post-card">
+        <h2 className="post-card__title">{title}</h2>
+        <p className="post-card__text">{excerpt}</p>
+      </article>
+    </Link>
   )
 }
 
@@ -54,10 +67,12 @@ export const query = graphql`
     allMdx {
       nodes {
         frontmatter {
-          name
           tags
           title
+          date
         }
+        timeToRead
+        excerpt(pruneLength: 250)
       }
     }
   }
